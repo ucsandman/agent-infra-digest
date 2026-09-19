@@ -34,6 +34,11 @@ git commit -m "digest: YYYY-MM-DD"
 git push origin main   # only if the remote exists
 ```
 
+Note: the git CLI has no credentials on the worker machine, so pushes go
+through the GitHub connector instead: `python3 push_digest.py <sha> [...]`
+publishes the given local commits to `origin/main` via the git-database API
+(fast-forward only, never force). Local branch `main` tracks `origin/main`.
+
 ## Digest template
 
 ```markdown
