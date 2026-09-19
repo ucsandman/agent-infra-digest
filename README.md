@@ -37,7 +37,9 @@ git push origin main   # only if the remote exists
 Note: the git CLI has no credentials on the worker machine, so pushes go
 through the GitHub connector instead: `python3 push_digest.py <sha> [...]`
 publishes the given local commits to `origin/main` via the git-database API
-(fast-forward only, never force). Local branch `main` tracks `origin/main`.
+(fast-forward only, never force). Local branch `main` tracks `origin/main`;
+after publishing, resync with `git fetch origin && git reset --hard origin/main`
+so local refs match the remote SHAs.
 
 ## Digest template
 
